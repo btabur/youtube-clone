@@ -1,15 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import millify from 'millify';
 
 const VideoCard = ({video}) => {
+  const [isHover,setIsHover] = useState(false);
   return (
-    <div>
+    <div onMouseEnter={()=>setIsHover(true)}
+          onMouseLeave={()=> setIsHover(false)}
+          >
         {/* resim kısmı */}
-        <div>
-            <img src={video.thumbnail.pop().url} />
+        <div> 
+            {/* video içerisindeki resmin url sini alasıya kadar beklemesi için ? işareti koyduk */}
+            <img className='rounded-lg w-full object-contain' 
+            src={isHover && video.richThumbnail ?  // imleç üzerine geldi ise ve videonun önyüklemesi var ise onu gösterir
+              video.richThumbnail[0]?.url : 
+              video?.thumbnail[0]?.url} />  
         </div>
         {/* alt kısım */}
-        <div>
-
+        <div className='flex gap-4 mt-5'>
+          <img className='w-14 h-14 rounded-full' src={video.channelThumbnail[0]?.url} alt="" />
+          <div>
+            <h4 className='font-bold'>{video?.title}</h4>
+            <p>
+              {video?.channelTitle}
+            </p>
+            <div className='flex'>
+              <p>{millify(video.viewCount)} görüntülenme</p>
+              <p>{video.publishedTimeText}</p>
+            </div>
+          </div>
         </div>
     </div>
   )

@@ -7,9 +7,9 @@ import VideoCard from '../components/VideoCard';
 const Feed = () => {
   const {videos} = useContext(YoutubeContex);
   return (
-    <div className='flex gap-4'>
+    <div className='flex gap-4 overflow-y-hidden'>
       <SideBar/>
-      <div>
+      <div className='videos'>
         {!videos ? <Loading/> :
         videos.map(video => <VideoCard key={video.videoId} video= {video}/>)
         }
