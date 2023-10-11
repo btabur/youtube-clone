@@ -13,19 +13,24 @@ export const YoutubeProvider = ({children}) => {
     const [videos,setVideos] = useState(null);
 
     useEffect(()=>{
-     if(selectedCategory.type==="home" ||
-      selectedCategory.type === 'trending') {
+     if(selectedCategory.type==="home" || selectedCategory.type === 'trending') {
+        //eski videoları sil
+        setVideos(null)
         getData(`/${selectedCategory.type}`).then(res =>{
+
             const filtered = res.data.data.filter(item => item.type ==='video');
             setVideos(filtered);
-            console.log(filtered)
+          
         })
      }
      if(selectedCategory.type === "category") {
-        console.log('kategori verileri çekiliyor')
-     }
-     if(selectedCategory.type === "trending") {
-        console.log('kategori verileri çekiliyor')
+        //eski stati temizle 
+        setVideos(null)
+        getData(`/search?query=${selectedCategory.name}`)
+        .then(res=> {
+            const filtered = res.data.data.filter(item => item.type ==='video');
+            setVideos(filtered);
+        })
      }
     },[selectedCategory])
 

@@ -5,7 +5,7 @@ import {AiOutlineSearch, AiFillBell, AiFillVideoCamera} from 'react-icons/ai'
 const Header = () => {
   return (
     <header className='flex justify-between items-center p-4'>
-      <Link className='flex items-center gap-4'>
+      <Link className='flex items-center gap-4' to={'/'}>
         <img className='w-[50px]' src="/youtube-logo.png" alt="" />
         <h1 className='text-2xl font-bold hidden md:block'>YouTube</h1>
       </Link>
