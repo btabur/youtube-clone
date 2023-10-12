@@ -5,14 +5,14 @@
 - react-icons
 - react-router-dom
 - axios
-- millify
+- millify  : yüksek sayıları düzenler 3k, 4mn gibi
+- moment : tarih işlemlerini düzenler  2 ay önce gibi 
 - react-player
 - tailwind
 
 ## yapılacaklar
 
-- sidenavbar ekle
-- seçilen kategorilerin bilgisi contex yapısında tut
+-  video detail sayfasının altına yorumlar eklenecek. 
 
 ### Kaynaklar
  Apı: https://rapidapi.com/ytjar/api/yt-api

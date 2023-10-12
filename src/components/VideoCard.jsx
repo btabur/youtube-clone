@@ -2,19 +2,21 @@ import React, { useState } from 'react'
 import millify from 'millify';
 import { useNavigate } from 'react-router-dom';
 
-const VideoCard = ({video}) => {
+const VideoCard = ({video,design}) => {
   const [isHover,setIsHover] = useState(false);
   const navigate = useNavigate();
   return (
-    <div  onClick={()=>navigate(`/watch?v=${video.videoId}`)}
+    <div 
+         onClick={()=>navigate(`/watch?v=${video.videoId}`)}
           onMouseEnter={()=>setIsHover(true)}
           onMouseLeave={()=> setIsHover(false)}
-          className='cursor-pointer'
+          className={`cursor-pointer ${design}`}
           >
         {/* resim kısmı */}
         <div> 
             {/* video içerisindeki resmin url sini alasıya kadar beklemesi için ? işareti koyduk */}
-            <img className='rounded-lg w-full object-contain' 
+            <img  style={{display:design ? 'none' : ''}}
+            className='rounded-lg w-full object-contain' 
             src={isHover && video.richThumbnail ?  // imleç üzerine geldi ise ve videonun önyüklemesi var ise onu gösterir
               video.richThumbnail[0]?.url : 
               video?.thumbnail[0]?.url} />  

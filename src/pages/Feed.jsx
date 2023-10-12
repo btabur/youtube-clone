@@ -3,6 +3,7 @@ import SideBar from '../components/SideBar'
 import { YoutubeContex } from '../context/youtubeContext'
 import Loading from '../components/Loading';
 import VideoCard from '../components/VideoCard';
+import SceletonLoading from '../components/SceletonLoading';
 
 const Feed = () => {
   const {videos} = useContext(YoutubeContex);
@@ -10,7 +11,7 @@ const Feed = () => {
     <div className='flex gap-4 overflow-y-hidden'>
       <SideBar/>
       <div className='videos'>
-        {!videos ? <Loading/> :
+        {!videos ? <SceletonLoading/> :
         videos.map(video => <VideoCard key={video.videoId} video= {video}/>)
         }
       </div>
