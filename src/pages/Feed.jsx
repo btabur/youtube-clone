@@ -12,7 +12,7 @@ const Feed = () => {
       <SideBar/>
       <div className='videos'>
         {!videos ? <SceletonLoading/> :
-        videos.map(video => <VideoCard key={video.videoId} video= {video}/>)
+        videos.map((video,i) => <VideoCard key={i} video= {video}/>)
         }
       </div>
       

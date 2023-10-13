@@ -23,3 +23,5 @@
   `const [searchParams] =useSearchParams();`
 
   - useParams : url deki parametreleri alır
+
+  ![](ekran.gif)

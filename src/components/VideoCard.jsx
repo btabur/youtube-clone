@@ -15,7 +15,7 @@ const VideoCard = ({video,design}) => {
         {/* resim kısmı */}
         <div> 
             {/* video içerisindeki resmin url sini alasıya kadar beklemesi için ? işareti koyduk */}
-            <img  style={{display:design ? 'none' : ''}}
+            <img 
             className='rounded-lg w-full object-contain' 
             src={isHover && video.richThumbnail ?  // imleç üzerine geldi ise ve videonun önyüklemesi var ise onu gösterir
               video.richThumbnail[0]?.url : 
@@ -23,7 +23,8 @@ const VideoCard = ({video,design}) => {
         </div>
         {/* alt kısım */}
         <div className='flex gap-4 mt-5'>
-          <img className='w-14 h-14 rounded-full' src={video.channelThumbnail[0]?.url} alt="" />
+          <img  style={{display:design ? 'none' : ''}}
+           className='w-14 h-14 rounded-full' src={video.channelThumbnail[0]?.url} alt="" />
           <div>
             <h4 className='font-bold'>{video?.title}</h4>
             <p>
